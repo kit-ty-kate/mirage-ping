@@ -1,6 +1,16 @@
 open Mirage
 
-let main = foreign "Unikernel.Make" (time @-> stackv4 @-> job)
+let ip_k =
+  let doc = Key.Arg.info ~doc:"IP address to send to" ["ip"] in
+  Key.create "ip" Key.Arg.(required string doc)
+
+let port_k =
+  let doc = Key.Arg.info ~doc:"Port to send to" ["p"; "port"] in
+  Key.create "port" Key.Arg.(required int doc)
+
+let keys = [Key.abstract ip_k; Key.abstract port_k]
+
+let main = foreign ~keys "Unikernel.Make" (time @-> stackv4 @-> job)
 
 let stack = generic_stackv4 default_network
 

@@ -3,6 +3,10 @@ open Lwt.Infix
 module Make (Time : Mirage_time_lwt.S) (Stack : Mirage_stack_lwt.V4) = struct
   let start _time stack =
     let ip = Key_gen.ip () in
+    let ip = match Ipaddr.V4.of_string ip with
+      | Some ip -> ip
+      | None -> failwith "Cannot parse ip address"
+    in
     let port = Key_gen.port () in
     let tcp = Stack.tcpv4 stack in
     let rec loop () =
@@ -13,7 +17,7 @@ module Make (Time : Mirage_time_lwt.S) (Stack : Mirage_stack_lwt.V4) = struct
       | Ok flow ->
           Stack.TCPV4.close flow
       end >>= fun () ->
-      Time.sleep_ns (Duration.of_hour 1) >>= fun () ->
+      Time.sleep_ns (Duration.of_min 5) >>= fun () ->
       loop ()
     in
     loop ()
