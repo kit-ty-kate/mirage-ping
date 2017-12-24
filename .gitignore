@@ -1,0 +1,11 @@
+/*/.mirage.config
+/*/Makefile
+/*/_build
+/*/key_gen.ml
+/*/main.ml
+/*/main.native
+/*/*.opam
+/*/myocamlbuild.ml
+
+/receiver/ping_receiver
+/sender/ping_sender
