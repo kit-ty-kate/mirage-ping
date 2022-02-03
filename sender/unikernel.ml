@@ -1,7 +1,7 @@
 open Lwt.Infix
 
 module Make (Time : Mirage_time.S) (Stack : Tcpip.Stack.V4) = struct
-  let start _time stack =
+  let start () stack =
     let ip = Key_gen.ip () in
     let ip = match Ipaddr.V4.of_string ip with
       | Ok ip -> ip
