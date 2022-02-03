@@ -8,7 +8,7 @@ let port_k =
   let doc = Key.Arg.info ~doc:"Port to send to" ["p"; "port"] in
   Key.create "port" Key.Arg.(required int doc)
 
-let keys = [Key.abstract ip_k; Key.abstract port_k]
+let keys = [Key.v ip_k; Key.v port_k]
 
 let main = foreign ~keys "Unikernel.Make" (time @-> stackv4 @-> job)
 

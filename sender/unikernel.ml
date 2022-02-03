@@ -1,11 +1,11 @@
 open Lwt.Infix
 
-module Make (Time : Mirage_time_lwt.S) (Stack : Mirage_stack_lwt.V4) = struct
-  let start _time stack =
+module Make (Time : Mirage_time.S) (Stack : Tcpip.Stack.V4) = struct
+  let start () stack =
     let ip = Key_gen.ip () in
     let ip = match Ipaddr.V4.of_string ip with
-      | Some ip -> ip
-      | None -> failwith "Cannot parse ip address"
+      | Ok ip -> ip
+      | Error _ -> failwith "Cannot parse ip address"
     in
     let port = Key_gen.port () in
     let tcp = Stack.tcpv4 stack in
