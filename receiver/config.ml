@@ -6,9 +6,9 @@ let port_k =
 
 let keys = [Key.v port_k]
 
-let main = foreign ~keys "Unikernel.Make" (stackv4 @-> job)
+let main = foreign ~keys "Unikernel.Make" (stackv4v6 @-> job)
 
-let stack = generic_stackv4 default_network
+let stack = generic_stackv4v6 default_network
 
 let () =
   let packages = [] in
