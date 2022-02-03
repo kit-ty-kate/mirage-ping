@@ -1,6 +1,6 @@
 open Lwt.Infix
 
-module Make (Stack : Mirage_stack_lwt.V4) = struct
+module Make (Stack : Tcpip.Stack.V4) = struct
   let start stack =
     let port = Key_gen.port () in
     Stack.listen_tcpv4 stack ~port begin fun flow ->
