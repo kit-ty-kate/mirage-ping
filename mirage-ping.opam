@@ -10,9 +10,9 @@ depends: [
   "ocaml" {>= "4.08"}
   "dune" {>= "2.7"}
   "mirage" {>= "4.0"}
-  "mirage-unix"
-  "mirage-logs"
-  "mirage-clock-unix"
-  "mirage-bootvar-unix"
-  "tcpip"
+  "mirage-unix" {>= "5.0"}
+  "mirage-logs" {>= "1.2.0"}
+  "mirage-clock-unix" {>= "4.1.0"}
+  "mirage-bootvar-unix" {>= "0.1.0"}
+  "tcpip" {>= "7.0.0"}
 ]
