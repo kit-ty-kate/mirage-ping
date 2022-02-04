@@ -1,0 +1,21 @@
+(rule
+ (targets ping-receiver.exe ping-sender.exe)
+ (deps (universe))
+ (action
+  (progn
+   (chdir receiver
+    (progn
+     (run mirage configure)
+     (run mirage build)))
+   (chdir sender
+    (progn
+     (run mirage configure)
+     (run mirage build)))
+   (run cp receiver/dist/ping-receiver ping-receiver.exe)
+   (run cp sender/dist/ping-sender ping-sender.exe))))
+
+(install
+ (files
+  (ping-receiver.exe as ping-receiver)
+  (ping-sender.exe as ping-sender))
+ (section bin))
