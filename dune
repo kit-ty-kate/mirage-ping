@@ -1,6 +1,6 @@
 (rule
  (targets ping-receiver.exe ping-sender.exe)
- (deps (universe))
+ (deps (source_tree receiver) (source_tree sender))
  (action
   (progn
    (chdir receiver
