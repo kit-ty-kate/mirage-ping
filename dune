@@ -1,6 +1,12 @@
 (rule
  (targets ping-receiver.exe ping-sender.exe)
- (deps (source_tree receiver) (source_tree sender))
+ (deps
+   receiver/config.ml
+   receiver/unikernel.ml
+   receiver/unikernel.mli
+   sender/config.ml
+   sender/unikernel.ml
+   sender/unikernel.mli)
  (action
   (progn
    (chdir receiver
