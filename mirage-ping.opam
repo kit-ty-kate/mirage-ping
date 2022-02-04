@@ -1,5 +1,5 @@
 opam-version: "2.0"
-build: ["dune" "build"]
+build: ["dune" "build" "-p" name "-j" jobs]
 depends: [
   "mirage" {>= "4.0"}
   "mirage-unix"
