@@ -7,6 +7,8 @@ bug-reports: "https://github.com/kit-ty-kate/mirage-ping/issues"
 synopsis: "TODO"
 build: ["dune" "build" "-p" name "-j" jobs]
 depends: [
+  "ocaml" {>= "4.08"}
+  "dune" {>= "2.7"}
   "mirage" {>= "4.0"}
   "mirage-unix"
   "mirage-logs"
