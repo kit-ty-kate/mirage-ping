@@ -1,0 +1,33 @@
+(rule
+ (target ping-receiver.exe)
+ (deps
+   receiver/config.ml
+   receiver/unikernel.ml
+   receiver/unikernel.mli)
+ (action
+  (progn
+   (chdir receiver
+    (progn
+     (run mirage configure)
+     (run mirage build)))
+   (run cp receiver/dist/ping-receiver %{target}))))
+
+(rule
+ (target ping-sender.exe)
+ (deps
+   sender/config.ml
+   sender/unikernel.ml
+   sender/unikernel.mli)
+ (action
+  (progn
+   (chdir sender
+    (progn
+     (run mirage configure)
+     (run mirage build)))
+   (run cp sender/dist/ping-sender %{target}))))
+
+(install
+ (files
+  (ping-receiver.exe as ping-receiver)
+  (ping-sender.exe as ping-sender))
+ (section bin))

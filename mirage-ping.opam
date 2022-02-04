@@ -1,0 +1,18 @@
+opam-version: "2.0"
+license: "MIT"
+maintainer: "Kate <kit.ty.kate@disroot.org>"
+authors: "Kate <kit.ty.kate@disroot.org>"
+homepage: "https://github.com/kit-ty-kate/mirage-ping"
+bug-reports: "https://github.com/kit-ty-kate/mirage-ping/issues"
+synopsis: "TODO"
+build: ["dune" "build" "-p" name "-j" jobs]
+depends: [
+  "ocaml" {>= "4.08"}
+  "dune" {>= "2.7"}
+  "mirage" {>= "4.0"}
+  "mirage-unix" {>= "5.0"}
+  "mirage-logs" {>= "1.2.0"}
+  "mirage-clock-unix" {>= "4.1.0"}
+  "mirage-bootvar-unix" {>= "0.1.0"}
+  "tcpip" {>= "7.0.0"}
+]
