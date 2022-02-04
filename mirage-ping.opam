@@ -6,4 +6,5 @@ depends: [
   "mirage-logs"
   "mirage-clock-unix"
   "mirage-bootvar-unix"
+  "tcpip"
 ]
