@@ -1,4 +1,10 @@
 opam-version: "2.0"
+license: "MIT"
+maintainer: "Kate <kit.ty.kate@disroot.org>"
+authors: "Kate <kit.ty.kate@disroot.org>"
+homepage: "https://github.com/kit-ty-kate/mirage-ping"
+bug-reports: "https://github.com/kit-ty-kate/mirage-ping/issues"
+synopsis: "TODO"
 build: ["dune" "build" "-p" name "-j" jobs]
 depends: [
   "mirage" {>= "4.0"}
